@@ -135,6 +135,7 @@
             let question = Object.keys(questions[questionCounter])
             console.log(question)
             document.getElementById("showq").textContent = question
+            document.getElementById("result").innerHTML = "" //added this line to make the green and red boxes go away when next question
         }
 
         // function for the start quiz button
@@ -189,6 +190,7 @@
         
         `
             } else {
+                count -= 10      
                 document.getElementById('result').innerHTML = `
         <div class="alert alert-danger" role="alert"id="largeFont">
         Wrong!! 
@@ -209,7 +211,7 @@
 
         document.getElementById('false').addEventListener('click', () => {
             if (questionCounter >= questions) return
-            count -= 10
+          
             let answer = Object.values(questions[questionCounter])
             if (answer == 'false') {
                 score+=10
@@ -221,6 +223,7 @@
         `
         
             } else {
+                count -= 10
                 document.getElementById('result').innerHTML = `
         <div class="alert alert-danger" role="alert"id="largeFont">
         Wrong!! 
