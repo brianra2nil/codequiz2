@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        #startButtons {
+            display: none
+        }
+    </style>
+
+</head>
+
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <div class="container">
+        <div class="row">
+            <p>Time Left:</p>
+            <div id="div1" class="col-sm">
+
+            </div>
+            <div>
+            <div>Score:</div>
+            <div id="score"></div>
+        </div>
+            <br>
+            <br>
+            <br>
+            <div id="startButtons">
+                <div>
+                <div id="showq"></div>
+            </div>
+                <div>
+                    <button id="true">True</button>
+                    <button id="false">False</button>
+                </div>
+                <div id="result" class="col-sm">
+
+                </div>
+            </div>
+            <div id="startDiv" class="col-sm">
+                <div class="jumbotron">
+                    <h1 class="display-4">Coding Quiz</h1>
+                    <p class="lead">Instructions: <br>
+                        Choose the correct answer and try to reach the end before the timer runs out. <br>
+                        There are 3 questions. You have 2 minutes. <br>
+                        If you pick a wrong answer you are deducted 10 seconds.</p>
+                    <hr class="my-4">
+                    <p>Can you get high score?</p>
+                    <button class="btn btn-primary btn-lg" id="start" role="button">Start Quiz</button>
+                </div>
+                <div class="row">
+
+                </div>
+
+                <div class="row">
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <script>
+
+        // array of objects with the correct values
+        let questions = [
+            { "True or False?  Javascript goes at the bottom of the body?": true },
+            { "<p> is a header tag?": false },
+            { "You can make a div inside a div": true },
+        ]
+
+        let score = 0
+        let count = 120
+        document.getElementById("div1").textContent = count
+
+        let questionCounter = 0
+
+        function showQ() {
+            let question = Object.keys(questions[questionCounter])
+            console.log(question)
+            document.getElementById("showq").textContent = question
+        }
+
+        // function for the start quiz button
+        function handleStart(event) {
+            event.preventDefault()
+            // makes displays goes away when u click button
+            let startDiv = document.getElementById('startDiv')
+            if (startDiv.style.display !== "none") {
+                startDiv.style.display = "none"
+
+                let startButtons = document.getElementById('startButtons')
+                startButtons.style.display = "block"
+
+
+            }
+            showQ()
+
+            let myTimer = setInterval(() => {
+                count--
+                if (count <= 0) {
+                    alert('Time is up!')
+                    clearInterval(myTimer)
+                    count = 120
+                    startDiv.style.display = "block"
+                    startButtons.style.display = "none"
+                    
+                }
+                
+                document.getElementById('score').textContent = score
+                document.getElementById("div1").textContent = count
+
+            }, 1000)
+        }
+
+
+        
+        
+
+
+        // this button for start quiz along with above code makes div above jumbotron go away
+        document.getElementById("start").addEventListener('click', handleStart)
+
+        document.getElementById('true').addEventListener('click', () => {
+            if (questionCounter >= questions) return
+            let answer = Object.values(questions[questionCounter])
+            if (answer == 'true') {
+                score+=10
+                document.getElementById('result').innerHTML = `
+        <div class="alert alert-success" role="alert" id="largeFont">
+        Right!!
+        </div>
+        
+        `
+            } else {
+                document.getElementById('result').innerHTML = `
+        <div class="alert alert-danger" role="alert"id="largeFont">
+        Wrong!! 
+        </div>
+       
+        `   
+            }
+            let delayer = setTimeout(() => {
+                questionCounter += 1
+                clearTimeout(delayer)
+                showQ()
+            }, 400)
+
+        })
+
+
+        document.getElementById('false').addEventListener('click', () => {
+            if (questionCounter >= questions) return
+            count -= 10
+            let answer = Object.values(questions[questionCounter])
+            if (answer == 'false') {
+                score+=10
+                document.getElementById('result').innerHTML = `
+        <div class="alert alert-success" role="alert" id="largeFont">
+        Right!!
+        </div>
+        
+        `
+            } else {
+                document.getElementById('result').innerHTML = `
+        <div class="alert alert-danger" role="alert"id="largeFont">
+        Wrong!! 
+        </div>
+       
+        `   
+            }
+            
+            let delayer = setTimeout(() => {
+                questionCounter += 1
+                clearTimeout(delayer)
+                showQ()
+            }, 400)
+        
+        })
+
+
+
+
+
+    </script>
+</body>
+
+</html>
