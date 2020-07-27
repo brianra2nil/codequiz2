@@ -16,8 +16,8 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <h4> Time Left --></h4>
+    <nav class="navbar navbar-expand navbar-light bg-primary">
+        <h4>  Time Left-></h4>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -27,6 +27,11 @@
             <li class="nav-item active">
               <h4 id="div1"><span class="sr-only">(current)</span></h4>
             </li> 
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <h4>Score-></h4>
+          <h4 id="score">0</h4>
+        </form>
           
         </li>
         </div>
@@ -38,9 +43,7 @@
       <div class="container">
         <div class="row">
             
-            <p>Score:</p>
-            <p id="score">0</p>
-        
+           
         
             
             <div id="startButtons">
@@ -50,13 +53,24 @@
                     <br>
                     <br>
 
-                <div id="showq"></div>
+                    <div class="jumbotron">
+                        <h1 id="showq" class="display-4">Hello, world!</h1>
+                      </div>
+                <div ></div>
             </div>
-            
+            <br>
+            <br>
+            <br>
+
+
                 <div>
                     <button id="true">True</button>
                     <button id="false">False</button>
                 </div>
+                    <br>
+                    <br>
+                    <br>
+
                 <div id="result" class="col-sm">
 
                 </div>
@@ -66,7 +80,9 @@
                     <h1 class="display-4">Coding Quiz</h1>
                     <p class="lead">Instructions: <br>
                         Choose the correct answer and try to reach the end before the timer runs out. <br>
+                        If the timer runs out you start over. <br>
                         There are 3 questions. You have 2 minutes. <br>
+                        If you pick the right answwer you are rewarded 10 points. <br>
                         If you pick a wrong answer you are deducted 10 seconds.</p>
                     <hr class="my-4">
                     <p>Can you get high score?</p>
@@ -104,9 +120,9 @@
 
         // array of objects with the correct values
         let questions = [
-            { "True or False?  Javascript goes at the bottom of the body?": true },
+            { "Javascript goes at the bottom of the body.": true },
             { "<p> is a header tag?": false },
-            { "You can make a div inside a div": true },
+            { "You can make a div inside of a div": true },
         ]
 
         let score = 0
