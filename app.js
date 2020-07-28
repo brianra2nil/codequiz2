@@ -2,7 +2,7 @@
 let questions = [
     { "Javascript goes at the bottom of the body.": true },
     { "<p> is a header tag?": false },
-    { "You can make a div inside of a div": true },
+    { "You can make a <div> inside of a <div>": true },
 ]
 
 let score = 0
@@ -12,10 +12,22 @@ document.getElementById("div1").textContent = count
 let questionCounter = 0
 
 function showQ() {
+    if (questionCounter < questions.length) {
     let question = Object.keys(questions[questionCounter])
     console.log(question)
     document.getElementById("showq").textContent = question
-    document.getElementById("result").innerHTML = "" //added this line to make the green and red boxes go away when next question
+    document.getElementById("result").innerHTML = "" }//added this line to make the green and red boxes go away when next question
+else {document.createElement = ('div')
+className = 'leaderboards'
+innerHTML = `
+<label>enter name</label>
+<input></input>
+<button>Submist score</button>
+`
+
+
+
+}
 }
 
 // function for the start quiz button
@@ -121,5 +133,7 @@ Wrong!!
 })
 
 
+
+localStorage.setItem('score', '${score}')
 
 
