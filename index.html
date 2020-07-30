@@ -17,35 +17,51 @@
 
 <body>
     <nav class="navbar navbar-expand navbar-light bg-primary">
-        <h4>  Time Left-></h4>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <h4> Time Left-></h4>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
-      
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <h4 id="div1"><span class="sr-only">(current)</span></h4>
-            </li> 
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <h4>Score-></h4>
-          <h4 id="score">0</h4>
-        </form>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <h4 id="div1"><span class="sr-only">(current)</span>div</h4>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
+                </li>
           
-        </li>
+                <li class="nav-item active">
+                    <h4 id="highScore"><span class="sr-only"></span></h4>
+                </li>
+                <li class="nav-item active">
+                    <h4><span class="sr-only"></span></h4>
+                </li>
+                <li class="nav-item active">
+                    <h4 id="username"><span class="sr-only"></span></h4>
+                </li>
+          
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <h4>Score-></h4>
+                <h4 id="score">0</h4>
+            </form>
+
+            </li>
         </div>
-      </nav>
-   
-   
-   
-   
-      <div class="container">
+    </nav>
+
+
+
+
+    <div class="container">
         <div class="row">
-            
-           
-        
-            
+
+
+
+
             <div id="startButtons">
                 <div>
                     <br>
@@ -53,19 +69,19 @@
                     <br>
                     <div class="jumbotron">
                         <h1 id="showq" class="display-4"></h1>
-                      </div>
-                <div ></div>
-            </div>
-            <br>
-            <br>
-            <br>
+                    </div>
+                    <div></div>
+                </div>
+                <br>
+                <br>
+                <br>
                 <div>
                     <button id="true">True</button>
                     <button id="false">False</button>
                 </div>
-                    <br>
-                    <br>
-                    <br>
+                <br>
+                <br>
+                <br>
                 <div id="result" class="col-sm">
                 </div>
             </div>
@@ -82,22 +98,13 @@
                     <p>Can you get high score?</p>
                     <button class="btn btn-primary btn-lg" id="start" role="button">Start Quiz</button>
                 </div>
-                <table id="trivia">
-                <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">username</th>
-                      <th scope="col">score</th>
-                    </tr>
-                  </thead>
-                </table>
+
             </div>
-            
-            
-            <div id="leaderboards" class="row">
-                      
-            
-        </div>
+            <br><br><br>
+<div id="leaderboards" class="col-sm">
+
+
+            </div>
         </div>
     </div>
 
@@ -115,7 +122,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
-    
+
     <script src="./app.js">
     </script>
 </body>

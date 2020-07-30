@@ -1,9 +1,36 @@
+
+
 // array of objects with the correct values
 let questions = [
     { "Javascript goes at the bottom of the body.": true },
     { "<p> is a header tag?": false },
     { "You can make a <div> inside of a <div>": true },
+    { "[] are used for Arrays": true },
+    { "This Quiz is Awesome!": true },
 ]
+
+let highScore = 0
+
+let userName = 'No current high score'
+
+let scoreLog = JSON.parse(localStorage.getItem('scoreLog')) || []
+
+for (let i = 0; i < scoreLog.length; i++) {
+    highScore = scoreLog[i].highScore
+    userName = scoreLog[i].userName
+  }
+
+  document.getElementById('username').innerHTML = `
+High Score:&nbsp;${highScore}
+User: ${userName}
+`
+
+
+
+
+
+
+
 
 let score = 0
 let count = 120
@@ -16,14 +43,15 @@ function showQ() {
         let question = Object.keys(questions[questionCounter])
         console.log(question)
         document.getElementById("showq").textContent = question
-        document.getElementById("result").innerHTML = ""
-    }//added this line to make the green and red boxes go away when next question
+        document.getElementById("result").innerHTML = ""//added this line to make the green and red boxes go away when next question
+    }
     else {
         
         document.getElementById('leaderboards').innerHTML = `
         <form>
-        <label>Game Over!</label>
-<input class="username" placeholder="Enter Name"></input>
+        <p>Game Over!</p>
+        <p>Your score: ${score}</p>
+<input id="username" placeholder="Enter Name"></input>
 <button id="submitBtn">Submit score</button>
 </form>
 `
